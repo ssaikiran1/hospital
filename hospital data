@@ -1,0 +1,94 @@
+create table doctor_details(
+  doc_id serial primary key,
+  doc_name varchar(70),
+  doc_qual varchar(50),
+  doc_specialization varchar(20),
+  doc_exp integer,
+  doc_img varchar(100)
+  )
+
+ INSERT INTO doctor_details (doc_name, doc_qual, doc_specialization, doc_exp, doc_img)
+VALUES
+  ('Dr. Ramesh Sharma', 'MBBS, MD', 'Cardiology', 15, 'img1.jpg'),
+  ('Dr. Priya Patel', 'MBBS, MS', 'Dermatology', 10, 'img2.jpg'),
+  ('Dr. Rajesh Kumar', 'MBBS, DNB', 'Orthopedics', 12, 'img3.jpg'),
+  -- Add more records with different names and specializations
+  ('Dr. Neha Gupta', 'MBBS, MS', 'Gynecology', 8, 'img4.jpg'),
+  ('Dr. Anand Joshi', 'MBBS, MCh', 'Neurosurgery', 18, 'img5.jpg'),
+  ('Dr. Pooja Singh', 'MBBS, MD', 'Pediatrics', 9, 'img6.jpg'),
+  ('Dr. Manoj Sharma', 'MBBS, DM', 'Gastroenterology', 14, 'img7.jpg'),
+  ('Dr. Aarti Reddy', 'MBBS, MS', 'Ophthalmology', 11, 'img8.jpg'),
+  ('Dr. Sameer Verma', 'MBBS, DNB', 'Urology', 16, 'img9.jpg'),
+  ('Dr. Sushma Desai', 'MBBS, MD', 'Psychiatry', 13, 'img10.jpg'),
+  -- Add more records
+  ('Dr. Vivek Yadav', 'MBBS, MS', 'ENT', 7, 'img11.jpg'),
+  ('Dr. Meera Rathi', 'MBBS, DM', 'Endocrinology', 19, 'img12.jpg'),
+  ('Dr. Arjun Kapoor', 'MBBS, MCh', 'Plastic Surgery', 17, 'img13.jpg'),
+  ('Dr. Nisha Sharma', 'MBBS, DNB', 'Dentistry', 6, 'img14.jpg'),
+  ('Dr. Akash Singh', 'MBBS, MD', 'Pulmonology', 10, 'img15.jpg'),
+  -- Add more records
+  ('Dr. Aisha Khan', 'MBBS, MS', 'Oncology', 8, 'img16.jpg'),
+  ('Dr. Prakash Mehta', 'MBBS, MCh', 'Cardiothoracic Surgery', 20, 'img17.jpg'),
+  ('Dr. Shruti Verma', 'MBBS, DNB', 'Rheumatology', 9, 'img18.jpg'),
+  ('Dr. Vikram Choudhary', 'MBBS, MD', 'Nephrology', 14, 'img19.jpg'),
+  ('Dr. Jyoti Patel', 'MBBS, MS', 'Obstetrics', 12, 'img20.jpg');
+
+
+
+CREATE TABLE slot_details (
+  s_id serial PRIMARY KEY,
+  s_docid integer REFERENCES doctor_details(doc_id),
+  s_date date,
+  s_ftime varchar(10),
+  s_ttime varchar(10),
+  s_status varchar(5)
+);
+
+
+
+INSERT INTO slot_details (s_docid, s_date, s_ftime, s_ttime, s_status)
+VALUES
+  (4, '2023-09-01', '09:00 AM', '11:00 AM', 'Open'),
+  (4, '2023-09-02', '02:00 PM', '04:00 PM', 'Open'),
+  (4, '2023-09-03', '09:00 AM', '11:00 AM', 'Open'),
+  (4, '2023-09-13', '02:00 PM', '04:00 PM', 'Open'),
+  (4, '2023-09-22', '10:00 AM', '12:00 PM', 'Open'),
+  (4, '2023-09-16', '03:00 PM', '05:00 PM', 'Open'),
+  (4, '2023-09-06', '09:30 AM', '11:30 AM', 'Open'),
+  (4, '2023-09-11', '01:30 PM', '03:30 PM', 'Open'),
+  (4, '2023-09-28', '10:30 AM', '12:30 PM', 'Open'),
+  (4, '2023-09-18', '02:30 PM', '04:30 PM', 'Open'),
+  (4, '2023-09-08', '09:00 AM', '11:00 AM', 'Open'),
+  (4, '2023-09-04', '01:00 PM', '03:00 PM', 'Open'),
+  (4, '2023-09-25', '11:30 AM', '01:30 PM', 'Open'),
+  (4, '2023-09-30', '04:00 PM', '06:00 PM', 'Open'),
+    (3, '2023-09-01', '09:00 AM', '11:00 AM', 'Open'),
+  (3, '2023-09-02', '02:00 PM', '04:00 PM', 'Open'),
+  (3, '2023-09-03', '09:00 AM', '11:00 AM', 'Open'),
+  (3, '2023-09-13', '02:00 PM', '04:00 PM', 'Open'),
+  (3, '2023-09-22', '10:00 AM', '12:00 PM', 'Open'),
+  (3, '2023-09-16', '03:00 PM', '05:00 PM', 'Open'),
+  (3, '2023-09-06', '09:30 AM', '11:30 AM', 'Open'),
+  (3, '2023-09-11', '01:30 PM', '03:30 PM', 'Open'),
+  (3, '2023-09-28', '10:30 AM', '12:30 PM', 'Open'),
+  (3, '2023-09-18', '02:30 PM', '04:30 PM', 'Open'),
+  (3, '2023-09-08', '09:00 AM', '11:00 AM', 'Open'),
+  (3, '2023-09-04', '01:00 PM', '03:00 PM', 'Open'),
+  (3, '2023-09-25', '11:30 AM', '01:30 PM', 'Open'),
+  (3, '2023-09-30', '04:00 PM', '06:00 PM', 'Open'),
+    (2, '2023-09-01', '09:00 AM', '11:00 AM', 'Open'),
+  (2, '2023-09-02', '02:00 PM', '04:00 PM', 'Open'),
+  (2, '2023-09-03', '09:00 AM', '11:00 AM', 'Open'),
+  (2, '2023-09-13', '02:00 PM', '04:00 PM', 'Open'),
+  (2, '2023-09-22', '10:00 AM', '12:00 PM', 'Open'),
+  (2, '2023-09-16', '03:00 PM', '05:00 PM', 'Open'),
+  (2, '2023-09-06', '09:30 AM', '11:30 AM', 'Open'),
+  (2, '2023-09-11', '01:30 PM', '03:30 PM', 'Open'),
+  (2, '2023-09-28', '10:30 AM', '12:30 PM', 'Open'),
+  (2, '2023-09-18', '02:30 PM', '04:30 PM', 'Open'),
+  (2, '2023-09-08', '09:00 AM', '11:00 AM', 'Open'),
+  (2, '2023-09-04', '01:00 PM', '03:00 PM', 'Open'),
+  (2, '2023-09-25', '11:30 AM', '01:30 PM', 'Open'),
+  (2, '2023-09-30', '04:00 PM', '06:00 PM', 'Open');
+
+
