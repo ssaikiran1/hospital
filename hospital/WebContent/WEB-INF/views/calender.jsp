@@ -1,5 +1,5 @@
 <%@ page language="java"
-	import="com.models.DoctorDetails,java.util.ArrayList"
+	import="com.models.DoctorSlots,java.util.ArrayList"
 	contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -68,7 +68,34 @@ body {
 	<div class="header">
 		<h1>Aadhya Hospital</h1>
 	</div>
-	<h1>mad</h1>
+	<center>
+		<%
+			ArrayList<DoctorSlots> sa = (ArrayList<DoctorSlots>) request.getAttribute("doctorslots");
+		%><table border="1">
+			<tr>
+				<th>slot id</th>
+				<th>doc id</th>
+				<th>date</th>
+				<th>ftime</th>
+				<th>ttime</th>
+			<tbody>
+				<%
+					for (int i = 0; i < sa.size(); i++) {
+					DoctorSlots s1 = sa.get(i);
+				%><tr>
+					<td><%=s1.getS_id()%></td>
+					<td><%=s1.getS_docid()%></td>
+					<td><%=s1.getS_date()%></td>
+					<td><%=s1.getS_ftime()%></td>
+					<td><%=s1.getS_ttime()%></td>
+				</tr>
+				<%
+					}
+				%>
+			</tbody>
+			</tr>
+		</table>
+	</center>
 
 </body>
 </html>
